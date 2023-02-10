@@ -1,7 +1,7 @@
 # console-dictation
 
 ## PROJECT GOALS
-> The main goal of this project was to make a convenient way to have persistant terminal logging
+> The main goal of this project was to make a convenient way to have persistent terminal logging
 
 - - -
 
