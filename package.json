@@ -1,0 +1,27 @@
+{
+  "name": "console-dictation",
+  "version": "1.0.0",
+  "description": "A method to dictate console reports to persistant files",
+  "main": "index.js",
+  "types": "lib/main.d.ts",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "types": "./index.js",
+      "default": "./index.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spiltbeans/console-dictation.git"
+  },
+  "author": "Eyas Valdez (https://github.com/spiltbeans)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spiltbeans/console-dictation/issues"
+  },
+  "homepage": "https://github.com/spiltbeans/console-dictation#readme"
+}
