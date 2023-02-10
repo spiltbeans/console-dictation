@@ -6,6 +6,9 @@
 - - -
 
 ## Installation
+```
+npm i console-dictation
+```
 - - -
 ## Usage
 
