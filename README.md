@@ -29,7 +29,7 @@ report({type:1, message:<message>}) |report({type:0, message:<message>}) |report
 Example: simple express logging
 
 ```js
-const dictator = require('console-dictator').config()
+const dictator = require('console-dictation').config()
 const express = require('express')
 
 const app = express()
