@@ -14,7 +14,7 @@ npm i console-dictation
 
 1. Require the package, and inline configure the package
 ```js
-let dictator = require('console-dictator').config()
+let dictator = require('console-dictation').config()
 ```
 
 Functionality
