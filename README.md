@@ -34,6 +34,6 @@ const express = require('express')
 
 const app = express()
 
-app.listen(3000, () => system(`connected to booking server: port ${port} `))
+app.listen(3000, () => dictator.system(`connected to booking server: port ${port} `))
 ```
 - - -
