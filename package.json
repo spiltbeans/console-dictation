@@ -1,6 +1,6 @@
 {
   "name": "console-dictation",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A method to dictate console reports to persistant files",
   "main": "index.js",
   "types": "lib/main.d.ts",
