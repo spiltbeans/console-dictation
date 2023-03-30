@@ -18,6 +18,17 @@
     "type": "git",
     "url": "git+https://github.com/spiltbeans/console-dictation.git"
   },
+  "keywords": [
+    "log",
+    "logger",
+    "logging",
+    "sysadmin",
+    "syslog",
+    "tools",
+    "persistent",
+    "persistent logs",
+    "node"
+  ],
   "author": "Eyas Valdez (https://github.com/spiltbeans)",
   "license": "ISC",
   "bugs": {
