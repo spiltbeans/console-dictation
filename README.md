@@ -1,7 +1,7 @@
 # console-dictation
 
 ## PROJECT GOALS
-> The main goal of this project was to make a convenient way to have persistent terminal logging
+> The main goal of this project was to make a convenient way to have persistent terminal logging.
 
 - - -
 
@@ -10,30 +10,78 @@
 npm i console-dictation
 ```
 - - -
-## Usage
 
-1. Require the package, and inline configure the package
+## Quick Start
+
+1. Require the package
 ```js
-let dictator = require('console-dictation').config()
+const dictator = require('console-dictation')
 ```
 
-Functionality
+2. Use package methods to start logging
+```js
+dictator.system("Hello, world!")
+```
 
+## Usage
+
+### Configuration
+
+By default the paths where the logs are stored are as follows:
 System log | Error log | Miscellaneous log
 --- | --- | ---
-system(<message>) | error(<message>) | misc(<message>)
-report({type:1, message:<message>}) |report({type:0, message:<message>}) |report({type:2, message:<message>}) |
+`<CWD>/logs/sys/sys.log`|`<CWD>/logs/error/err.log`|`<CWD>/logs/misc/misc.log`
 
-> Note by defaut, report with only message will print a system log
-
-Example: simple express logging
+You can use the `config` method to overwrite or create new logging paths:
 
 ```js
-const dictator = require('console-dictation').config()
+config({ 
+  paths: { <SOME_PATH_KEY>: string, ... }, 
+  log_names: { <SOME_PATH_KEY>: string, ... } 
+})
+```
+
+Where `paths` indicated the log folder path (excluding the file), and the `log_names` indicate the log filename.
+
+>Note: logging paths are held as **global** state, meaning helper modules share the same logging paths by default.
+
+### Logs
+  
+System log | Error log | Miscellaneous log
+--- | --- | ---
+`system( message: string )` | `error( message: string )` | `misc( message: string )`
+`report({ type: 1, message: string })` | `report({ type:0, message: string })` |`report({ type:2, message: string })` |
+
+> Note: `report` with missing `type` parameter or unknown `type` parameter will default to a miscellaneous log.
+
+Each log type includes an optional `path` parameter. This can be used to manually change log path of that specific message:
+
+```js
+system( message: string, path ?: { PATH: string, LOG_NAME: string } )
+```
+
+## Examples
+
+#### Example 1: simple express logging
+
+```js
+const dictator = require('console-dictation')
 const express = require('express')
 
 const app = express()
 
-app.listen(3000, () => dictator.system(`connected to booking server: port ${port} `))
+app.listen(3000, () => dictator.system(`connected to booking server: port ${port}`))
+```
+- - -
+
+#### Example 2: utilize destructuring
+
+```js
+const { system } = require('console-dictation')
+const express = require('express')
+
+const app = express()
+
+app.listen(3000, () => system(`connected to booking server: port ${port}`))
 ```
 - - -
