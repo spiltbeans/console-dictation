@@ -35,6 +35,8 @@ System log | Error log | Miscellaneous log
 You can use the `config` method to overwrite or create new logging paths:
 
 ```js
+const { config } = require('console-dictation')
+
 config({ 
   paths: { <SOME_PATH_KEY>: string, ... }, 
   log_names: { <SOME_PATH_KEY>: string, ... } 
@@ -44,6 +46,20 @@ config({
 Where `paths` indicated the log folder path (excluding the file), and the `log_names` indicate the log filename.
 
 >Note: logging paths are held as **global** state, meaning helper modules share the same logging paths by default.
+
+### Retrieving Configuration
+
+Dictator configuration is stored in local memory. You can use the following commands to find the local configuration.
+
+```js
+const { getPaths, getLogNames, getConfig } = require('console-dictation')
+
+let paths = getPaths()          // { PATH_KEY: PATH, ... }
+
+let log_names = getLogNames()   // { LOG_KEY: LOG_FILENAME, ... }
+
+let config = getConfig()        // {PATHS: { PATH_KEY: PATH, ... }, LOG_NAMES: { LOG_KEY: LOG_FILENAME, ... }}
+```
 
 ### Logs
   
@@ -57,6 +73,8 @@ System log | Error log | Miscellaneous log
 Each log type includes an optional `path` parameter. This can be used to manually change log path of that specific message:
 
 ```js
+const { system } = require('console-dictation')
+
 system( message: string, path ?: { PATH: string, LOG_NAME: string } )
 ```
 
