@@ -1,0 +1,11 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "Demo for conosole-dictation",
+  "main": "demo.js",
+  "scripts": {
+    "demo": "node demo.js"
+  },
+  "author": "Eyas Valdez",
+  "license": "ISC"
+}
