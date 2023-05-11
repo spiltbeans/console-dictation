@@ -4,7 +4,8 @@
   "description": "Demo for console-dictation",
   "main": "demo.js",
   "scripts": {
-    "demo": "node demo.js"
+    "demo": "node demo.js",
+	"demo-ts": "node demo.ts"
   },
   "author": "Eyas Valdez",
   "license": "ISC"
