@@ -1,0 +1,1 @@
+export {dictator} from "./core/main"

@@ -1,3 +1,3 @@
-import dictator from "../index";
+import dictator from "../dist/mjs/core/main.js"
 
 console.log(dictator)
