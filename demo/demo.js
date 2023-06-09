@@ -1,41 +1,86 @@
-const dictator = require('../dist/cjs/index')
-const fs = require('fs')
-console.log(fs)
-console.log(dictator)
+const { system, error, report, config, misc, getConfig } = require('../dist/cjs/index')
 
-// system('test 2', {
-//     PATH: './logs/test',
-//     LOG_NAME: 'test.log'
-// })
+/**
+ * Base tests
+ */
+system('base system test')
+error('base error test')
+misc('base misc test')
 
-// report({
-//     type: 1,
-//     message: 'test 3'
-// })
+console.log('current configs', getConfig())
 
-// report({
-//     type: 1,
-//     message: 'test 4',
-//     path: {
-//         PATH: './logs/test',
-//         LOG_NAME: 'test.log'
-//     }
-// })
+/**
+ * config writes
+ */
 
-// config({
-//     paths: {
-//         'SYS': './logs/system'
-//     },
-//     log_names: {
-//         'SYS': 'system.log'
-//     },
-//     indexing_config: {
-//         indexing: true
-//     }
-// })
+system('system config writes', {
+	PATH: './logs/test',
+	LOG_NAME: 'test.log'
+})
 
-// system('test 4')
+error('error config writes', {
+	PATH: './logs/test',
+	LOG_NAME: 'test.log'
+})
 
-// misc('test 5')
+/**
+ * Generic writes
+ */
 
-// system(JSON.stringify(getConfig()))
+report({
+    type: 0,
+    message: 'generic system write'
+})
+
+/**
+ * Generic configured writes
+ */
+report({
+    type: 0,
+    message: 'generic configured system write',
+    path: {
+        PATH: './logs/test',
+        LOG_NAME: 'test.log'
+    }
+})
+
+/**
+ * Configuration
+ */
+
+config({
+    paths: {
+        'SYS': './logs/system'
+    },
+    log_names: {
+        'SYS': 'system.log'
+    },
+    indexing_config: {
+        indexing: true
+    }
+})
+
+console.log('configs after change', getConfig())
+/**
+ * Base writes with indexing
+ */
+system('system base write post-config')
+
+misc('misc base write post-config, 1')
+misc('misc base write post-config, 2')
+misc('misc base write post-config, 3')
+misc('misc base write post-config, 4')
+
+/**
+ * Configuring dependencies
+ */
+config({
+    indexing_config: {
+		dependencies: {
+			SYS: ['misc', 'error']
+		}
+	}
+})
+
+system('system base write post-dependency config')
+console.log('configs after config change', getConfig())

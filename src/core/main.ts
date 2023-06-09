@@ -20,10 +20,11 @@ const write = (
 		const log_path = path.join(file_path, log_name)
 
 		if (fs.existsSync(log_path)) {
-			const fd = fs.openSync(log_path, 'w')		// 'w': Open file for writing. The file is created (if it does not exist) or truncated (if it exists).
+			const fd = fs.openSync(log_path, 'a')			// 'w': Open file for writing. The file is created (if it does not exist) or truncated (if it exists).
 			fs.appendFileSync(fd, message, 'utf8')
 		} else {
-			const fd = fs.openSync(log_path, 'w')		// 'w': Open file for writing. The file is created (if it does not exist) or truncated (if it exists).
+			fs.mkdirSync(file_path, { recursive: true })	// we can't use juts openSync with w because the file directories may not have been created
+			const fd = fs.openSync(log_path, 'w')			// 'w': Open file for writing. The file is created (if it does not exist) or truncated (if it exists).
 			fs.writeFileSync(fd, message);
 		}
 	} catch (err) {
@@ -32,7 +33,7 @@ const write = (
 }
 
 
-export const dictator = {
+const dictator = {
 
 	config: (
 		{
@@ -50,17 +51,20 @@ export const dictator = {
 
 		// no errors
 
-		for (let path_key in paths) (
+		for (let path_key in paths) {
 			PATHS[path_key] = paths[path_key]
-		)
+		}
 
-		for (let log_key in log_names) (
+		for (let log_key in log_names) {
 			LOG_NAMES[log_key] = log_names[log_key]
-		)
+		}
 
 		if (indexing_config.hasOwnProperty('indexing') && indexing_config.indexing !== undefined) INDEXING_CONFIG.indexing = indexing_config.indexing
-		if (indexing_config.hasOwnProperty('dependencies') && indexing_config.dependencies !== undefined) INDEXING_CONFIG.dependencies = indexing_config.dependencies
-
+		if (indexing_config.hasOwnProperty('dependencies') && indexing_config.dependencies !== undefined) {
+			for (let dependency_key in indexing_config.dependencies) {
+				INDEXING_CONFIG.dependencies[dependency_key] = indexing_config.dependencies[dependency_key]
+			}
+		}
 	},
 	system: (
 		message: string,
@@ -160,6 +164,8 @@ export const dictator = {
 		return LOG_NAMES
 	},
 	getConfig: () => {
-		return { PATHS, LOG_NAMES }
+		return { PATHS, LOG_NAMES, INDEXING_CONFIG }
 	}
 }
+
+export default dictator
