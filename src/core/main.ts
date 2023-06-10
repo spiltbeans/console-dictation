@@ -1,9 +1,9 @@
 import fs from 'fs'
 import path from 'path'
-import { getTimeStamp } from '../utils/date.js'
-import { isRequestValid } from '../utils/validator.js'
-import { tracker } from '../utils/indexer.js'
-import { PATHS, LOG_NAMES, INDEXING_CONFIG, ALIASES } from './config.js'
+import { getTimeStamp } from '../utils/date'
+import { isRequestValid } from '../utils/validator'
+import { tracker } from '../utils/indexer'
+import { PATHS, LOG_NAMES, INDEXING_CONFIG, ALIASES } from './config'
 
 /*
 * ----------------------------------------------------

@@ -1,33 +1,8 @@
 {
+	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
-		"strict": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"skipLibCheck": true,
-		"allowJs": true,
-		"checkJs": true,
-		"declaration": true,
-		"declarationMap": true,
-		"allowSyntheticDefaultImports": true,
-		"target": "ES2022",
-		"module": "ESNext",
-		"lib": [
-			"DOM",
-			"ES2022"
-		],
-		"moduleResolution": "nodenext",
+		"module": "ESNext", // which JavaScript module format should be used when compiling your project code
 		"outDir": "dist/mjs",
-		"declarationDir": "dist/mjs/types",
-		"rootDir": "src",
-		"removeComments": true,
-		"noImplicitAny": true,
-	},
-	"include": [
-		"src",
-		"types.d.ts"
-	],
-	"exclude": [
-		"node_modules",
-		"dist"
-	]
+		"declarationDir": "dist/mjs/types"
+	}
 }

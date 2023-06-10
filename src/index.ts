@@ -1,4 +1,5 @@
-import dictator from './core/main.js'
+import dictator from './core/main'
+
 export const {
 	config,
 	system,
@@ -7,7 +8,16 @@ export const {
 	report,
 	getConfig,
 	getLogNames,
-	getPaths
+	getPaths,
 } = dictator
 
-export default dictator
+export default {
+	config,
+	system,
+	error,
+	misc,
+	report,
+	getConfig,
+	getLogNames,
+	getPaths,
+}
