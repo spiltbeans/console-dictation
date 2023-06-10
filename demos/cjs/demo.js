@@ -1,4 +1,4 @@
-const { system, error, report, config, misc, getConfig } = require('../dist/cjs/index')
+const { system, error, report, config, misc, getConfig } = require('console-dictation')
 
 /**
  * Base tests

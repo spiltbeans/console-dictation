@@ -1,4 +1,4 @@
-import { ALIASES } from "../core/config"
+import { ALIASES } from "../core/config.js"
 
 const tracker = {
 	SYS: 0,
