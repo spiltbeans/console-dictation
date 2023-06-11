@@ -4,12 +4,12 @@
   "description": "CommonJS demo for console-dictation",
   "main": "demo.js",
   "scripts": {
-    "demo": "npm run prepare && node demo.js",
-    "prepare": "npm run package && npm i console-dictation-demo_pkg.tgz && npm run clean:logs",
+    "start": "node demo.js",
+    "prestart": " npm run clean:logs && npm run package && npm i console-dictation-demo_pkg.tgz",
     "package": "cd ../../ && npm pack && mv *.tgz ./demos/cjs/console-dictation-demo_pkg.tgz",
-    "clean": "npm run clean:logs && npm run clean:tar",
+    "clean": "npm run clean:logs && npm run clean:package",
     "clean:logs": "rm -rf ./logs",
-    "clean:tar": "rm -rf ./console-dictation-demo_pkg.tgz"
+    "clean:package": "rm -rf ./console-dictation-demo_pkg.tgz node_modules package-lock.json"
   },
   "author": "Eyas Valdez",
   "license": "ISC",

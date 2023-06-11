@@ -1,3 +1,5 @@
+import type { isValidRequest, CustomPath, RequestValidatorResponse } from '../@types/index';
+
 const isRequestValid = (
 	request: isValidRequest | CustomPath,
 	params: string[]

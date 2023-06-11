@@ -4,6 +4,7 @@ import { getTimeStamp } from '../utils/date'
 import { isRequestValid } from '../utils/validator'
 import { tracker } from '../utils/indexer'
 import { PATHS, LOG_NAMES, INDEXING_CONFIG, ALIASES } from './config'
+import type { IndexingConfigOptions, CustomPath, CallableWrites } from '../@types/index'
 
 /*
 * ----------------------------------------------------
