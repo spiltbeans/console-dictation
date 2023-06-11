@@ -1,19 +1,20 @@
 {
 	"compilerOptions": {
-		"strict": true,			// catch poor code conventions
-		"allowJs": false,		// allow importing js files in your project (rather than ts/x)
+		"strict": true, // catch poor code conventions
+		"allowJs": false, // allow importing js files in your project (rather than ts/x)
 		"forceConsistentCasingInFileNames": true,
-		"skipLibCheck": true,	// checking will compare your lib types to the types you use in code
-
-		"allowSyntheticDefaultImports": true,		// sets default where none. so you can import d from '' without import * as d from ''
-		"esModuleInterop": true,	// honestly not sure, works with allowSyntheticDefaultImports
-
-		"declaration": true,	// export a d.ts file for each ts file in project
-		"declarationMap": true,	// creates a source map for the d.ts files to the original ts files. for vs code really
+		"skipLibCheck": true, // checking will compare your lib types to the types you use in code
+		"allowSyntheticDefaultImports": true, // sets default where none. so you can import d from '' without import * as d from ''
+		"esModuleInterop": true, // honestly not sure, works with allowSyntheticDefaultImports
+		"declaration": false, // export a d.ts file for each ts file in project
+		"declarationMap": false, // creates a source map for the d.ts files to the original ts files. for vs code really
 		"removeComments": true,
+		"isolatedModules": true, // warn if there is code that cannot be transpiled into single-file (useful for rollup)
+		"lib": [
+			"ESNext",
+		] // libraries to look for type definitions
 	},
 	"include": [
-		"src/*",
-		"types.d.ts"
+		"src/*"
 	]
 }

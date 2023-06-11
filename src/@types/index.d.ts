@@ -1,26 +1,26 @@
-interface GenericPaths {
+export interface GenericPaths {
 	SYS?: string,
 	ERR?: string,
 	MISC?: string,
 	[log_slug: string]: string
 }
 
-interface isValidRequest extends GenericPaths { }
+export interface isValidRequest extends GenericPaths { }
 
-interface PATHS extends GenericPaths { }
+export interface Paths extends GenericPaths { }
 
-interface LOG_NAMES extends GenericPaths { }
+export interface LogNames extends GenericPaths { }
 
-interface ALIASES {
+export interface Aliases {
 	[log_slug: string]: (string | undefined)[]
 }
 
-type RequestValidatorResponse = {
+export type RequestValidatorResponse = {
 	isValid: boolean,
 	message: string
 }
 
-type IndexingConfig = {
+export type IndexingConfig = {
 	indexing: boolean,
 	dependencies: {
 		SYS?: (keyof typeof CallableWrites | undefined)[],
@@ -30,9 +30,9 @@ type IndexingConfig = {
 	}
 }
 
-interface IndexingConfigOptions {
-	paths?: PATHS,
-	log_names?: LOG_NAMES,
+export interface IndexingConfigOptions {
+	paths?: Paths,
+	log_names?: LogNames,
 	indexing_config?: {
 		indexing?: boolean,
 		dependencies?: {
@@ -41,12 +41,12 @@ interface IndexingConfigOptions {
 	}
 }
 
-interface CustomPath {
+export interface CustomPath {
 	PATH?: string,
 	LOG_NAME?: string
 }
 
-enum CallableWrites {
+export enum CallableWrites {
 	system,
 	error,
 	misc

@@ -1,6 +1,6 @@
 import dictator from './core/main'
 
-export const {
+const {
 	config,
 	system,
 	error,
@@ -11,7 +11,8 @@ export const {
 	getPaths,
 } = dictator
 
-export default {
+export {
+	dictator as default,
 	config,
 	system,
 	error,
@@ -21,3 +22,4 @@ export default {
 	getLogNames,
 	getPaths,
 }
+export type * from './@types/index.d.ts'
