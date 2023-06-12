@@ -3,9 +3,7 @@
 /package-lock.json
 /node_modules
 /dist
-demos/cjs/*
-!demos/cjs/demo.js
-!demos/cjs/package.json
-demos/mjs/*
-!demos/mjs/demo.js
-!demos/mjs/package.json
+/.build
+demos/**/*
+!demos/**/demo.js
+!demos/**/package.json

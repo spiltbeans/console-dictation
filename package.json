@@ -2,28 +2,29 @@
 	"name": "console-dictation",
 	"version": "2.3.1",
 	"description": "A method to dictate console reports to persistent files",
-	"main": "./dist/mjs/index.mjs",
-	"types": "./dist/@types/index.d.ts",
 	"exports": {
 		".": {
-			"import": "./dist/mjs/index.mjs",
-			"require": "./dist/cjs/index.js"
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
 		}
 	},
+	"main": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
 	"files": [
 		"dist/**/*",
 		"README.MD"
 	],
 	"scripts": {
-		"prebuild": "npm run clean",
-		"prepack": "npm i && npm run build",
-		"build": "npm run build:types && npm run build:mjs && npm run build:cjs",
-		"build:cjs": "tsc -p tsconfig.cjs.json",
-		"build:mjs": "rollup --bundleConfigAsCjs -c rollup.config.js",
-		"build:types": "tsc -p tsconfig.types.json && rollup --bundleConfigAsCjs -c rollup.types.js",
-		"postbuild:types": "npm run clean:types",
-		"clean": "rm -rf dist",
-		"clean:types": "rm -rf dist/types"
+		"clean:build": "rm -rf ./.build ./dist",
+		"prebuild": "npm run clean:build",
+		"build": "tsc && rollup --bundleConfigAsCjs -c rollup.config.js",
+		"prepack": "npm i && npm run build"
 	},
 	"repository": {
 		"type": "git",
@@ -47,7 +48,6 @@
 	},
 	"homepage": "https://github.com/spiltbeans/console-dictation#readme",
 	"devDependencies": {
-		"@rollup/plugin-typescript": "^11.1.1",
 		"@types/node": "^20.2.5",
 		"rollup": "^3.24.1",
 		"rollup-plugin-dts": "^5.3.0",

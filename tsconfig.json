@@ -1,6 +1,25 @@
 {
-	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
-		"target":"ESNext",	// which JavaScript language version is emitted
-	}
+		"diagnostics": true,
+		"strict": true, // catch poor code conventions
+		"allowJs": false, // allow importing js files in your project (rather than ts/x)
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true, // checking will compare your lib types to the types you use in code
+		"allowSyntheticDefaultImports": true, // sets default where none. so you can import d from '' without import * as d from ''
+		"esModuleInterop": true, // honestly not sure, works with allowSyntheticDefaultImports
+		"declaration": true, // export a d.ts file for each ts file in project
+		"removeComments": true,
+		"isolatedModules": true, // warn if there is code that cannot be transpiled into single-file (useful for rollup)
+		"lib": [
+			"ESNext",
+		], // libraries to look for type definitions
+		"target": "ESNext", // which JavaScript language version is emitted
+		"outDir": ".build",
+	},
+	"files": [
+		"src/@types/index.d.ts"
+	],
+	"include": [
+		"src/*"
+	]
 }

@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node demo.js",
     "prestart": " npm run clean:logs && npm run package && npm i console-dictation-demo_pkg.tgz",
-    "package": "cd ../../ && npm pack && mv *.tgz ./demos/mjs/console-dictation-demo_pkg.tgz",
+    "package": "cd ../../ && npm pack && mv console-dictation-2.3.1.tgz ./demos/mjs/console-dictation-demo_pkg.tgz",
     "clean": "npm run clean:logs && npm run clean:package",
     "clean:logs": "rm -rf ./logs",
     "clean:package": "rm -rf ./console-dictation-demo_pkg.tgz node_modules package-lock.json"
