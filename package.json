@@ -20,6 +20,10 @@
 		"dist/**/*",
 		"README.MD"
 	],
+	"browser": {
+		"fs": false,
+		"path": false
+	},
 	"scripts": {
 		"clean:build": "rm -rf ./.build ./dist",
 		"prebuild": "npm run clean:build",
