@@ -25,6 +25,7 @@
 		"path": false
 	},
 	"scripts": {
+		"clean":"rm -rf ./node_modules && npm run clean:build",
 		"clean:build": "rm -rf ./.build ./dist",
 		"prebuild": "npm run clean:build",
 		"build": "tsc && rollup --bundleConfigAsCjs -c rollup.config.js",

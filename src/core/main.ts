@@ -81,12 +81,12 @@ const dictator = {
 		if (isValid) {
 			write(log_message, path.PATH as string, path.LOG_NAME as string)
 		} else {
-			write(log_message, PATHS.SYS as string, LOG_NAMES.SYS as string)
+			write(log_message, PATHS.sys as string, LOG_NAMES.sys as string)
 		}
 
 		if (INDEXING_CONFIG.indexing && !isDependency) {
-			for (const dependency of INDEXING_CONFIG.dependencies.SYS as (keyof typeof CallableWrites)[]) {
-				dictator?.[dependency](`system issued: issue #${tracker.SYS} `, {}, true)
+			for (const dependency of INDEXING_CONFIG.dependencies.sys as (keyof typeof CallableWrites)[]) {
+				dictator?.[dependency](`system issued: issue #${tracker.sys} `, {}, true)
 			}
 		}
 	},
@@ -104,12 +104,12 @@ const dictator = {
 		if (isValid) {
 			write(log_message, path.PATH as string, path.LOG_NAME as string)
 		} else {
-			write(log_message, PATHS.ERR as string, LOG_NAMES.ERR as string)
+			write(log_message, PATHS.err as string, LOG_NAMES.err as string)
 		}
 
 		if (INDEXING_CONFIG.indexing && !isDependency) {
-			for (const dependency of INDEXING_CONFIG.dependencies.ERR as (keyof typeof CallableWrites)[]) {
-				dictator?.[dependency](`error issued: issue #${tracker.ERR} `, {}, true)
+			for (const dependency of INDEXING_CONFIG.dependencies.err as (keyof typeof CallableWrites)[]) {
+				dictator?.[dependency](`error issued: issue #${tracker.err} `, {}, true)
 			}
 		}
 	},
@@ -128,13 +128,13 @@ const dictator = {
 		if (isValid) {
 			write(log_message, path.PATH as string, path.LOG_NAME as string)
 		} else {
-			write(log_message, PATHS.MISC as string, LOG_NAMES.MISC as string)
+			write(log_message, PATHS.misc as string, LOG_NAMES.misc as string)
 		}
 
 
 		if (INDEXING_CONFIG.indexing && !isDependency) {
-			for (const dependency of INDEXING_CONFIG.dependencies.MISC as (keyof typeof CallableWrites)[]) {
-				dictator?.[dependency](`misc issued: issue #${tracker.MISC} `, {}, true)
+			for (const dependency of INDEXING_CONFIG.dependencies.misc as (keyof typeof CallableWrites)[]) {
+				dictator?.[dependency](`misc issued: issue #${tracker.misc} `, {}, true)
 			}
 		}
 
@@ -150,9 +150,9 @@ const dictator = {
 			path: CustomPath
 		}
 	) => {
-		if (ALIASES.SYS.includes(type.toString())) {
+		if (ALIASES.sys.includes(type.toString())) {
 			dictator.system(message, path)
-		} else if (ALIASES.ERR.includes(type.toString())) {
+		} else if (ALIASES.err.includes(type.toString())) {
 			dictator.error(message, path)
 		} else {
 			dictator.misc(message, path)

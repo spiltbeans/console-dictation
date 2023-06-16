@@ -1,5 +1,8 @@
 import dictator from './core/main'
 
+import { loadConfig } from './utils/loadConfig'
+
+loadConfig()
 const {
 	config,
 	system,
@@ -23,3 +26,4 @@ export {
 	getPaths,
 }
 export type * from './@types/index.d.ts'
+

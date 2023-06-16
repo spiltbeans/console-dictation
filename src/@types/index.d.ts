@@ -1,7 +1,7 @@
 export interface GenericPaths {
-	SYS?: string,
-	ERR?: string,
-	MISC?: string,
+	sys?: string,
+	err?: string,
+	misc?: string,
 	[log_slug: string]: string
 }
 
@@ -23,9 +23,9 @@ export type RequestValidatorResponse = {
 export type IndexingConfig = {
 	indexing: boolean,
 	dependencies: {
-		SYS?: (keyof typeof CallableWrites | undefined)[],
-		ERR?: (keyof typeof CallableWrites | undefined)[],
-		MISC?: (keyof typeof CallableWrites | undefined)[],
+		sys?: (keyof typeof CallableWrites | undefined)[],
+		err?: (keyof typeof CallableWrites | undefined)[],
+		misc?: (keyof typeof CallableWrites | undefined)[],
 		[log_slug: string]: (keyof typeof CallableWrites | undefined)[]
 	}
 }

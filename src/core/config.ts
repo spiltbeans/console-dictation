@@ -2,28 +2,40 @@ import path from 'path'
 import type { Paths, LogNames, IndexingConfig, Aliases } from '../@types/index'
 
 export const PATHS: Paths = {
-	ERR: path.join(process.cwd(), './logs/error'),
-	MISC: path.join(process.cwd(), './logs/misc'),
-	SYS: path.join(process.cwd(), './logs/sys')
+	sys: path.join(process.cwd(), './logs/sys'),
+	err: path.join(process.cwd(), './logs/error'),
+	misc: path.join(process.cwd(), './logs/misc')
 }
 export const LOG_NAMES: LogNames = {
-	ERR: 'err.log',
-	MISC: 'misc.log',
-	SYS: 'sys.log'
+	sys: 'sys.log',
+	err: 'err.log',
+	misc: 'misc.log'
 }
 
 export const INDEXING_CONFIG: IndexingConfig = {
 	indexing: false,
 	dependencies:
 	{
-		ERR: ['system'],
-		MISC: ['system'],
-		SYS: []
+		sys: [],
+		err: ['system'],
+		misc: ['system']
 	}
 }
 
 export const ALIASES: Aliases = {
-	SYS: ['SYS', 'SYS', '0'],
-	ERR: ['ERR', 'ERR', '1'],
-	MISC: ['MISC', 'MISCELLANEOUS', '2']
+	"sys": [
+		"sys",
+		"system",
+		"0"
+	],
+	"err": [
+		"err",
+		"error",
+		"1"
+	],
+	"misc": [
+		"misc",
+		"miscellaneous",
+		"2"
+	]
 }
